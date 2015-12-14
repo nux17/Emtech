@@ -15,7 +15,7 @@ class Users(models.Model):
 class Trash(models.Model):
     user = models.ForeignKey('Users', null=True)
     activated = models.BooleanField(default=False, null=False)
-    activation_mode = models.SmallIntegerField(null=False)
+    activation_mode = models.SmallIntegerField(null=True)
     lat = models.FloatField(null=True)
     lon = models.FloatField(null=True)
     activated_at = models.DateTimeField(null=True)
