@@ -15,7 +15,8 @@ class Users(models.Model):
 class Trash(models.Model):
     user = models.ForeignKey('Users', null=True)
     activated = models.BooleanField(default=False, null=False)
-    activation_mode = models.SmallIntegerField(null=True)
     lat = models.FloatField(null=True)
     lon = models.FloatField(null=True)
     activated_at = models.DateTimeField(null=True)
+    remote = models.CharField(null=True, max_length=32)
+    route_id = models.IntegerField(default=0)

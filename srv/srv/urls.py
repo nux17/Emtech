@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from emtech.models import Users, Trash
-from rest_framework import routers, serializers, viewsets
+from rest_framework import routers, serializers, viewsets, generics
 
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -27,7 +27,13 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class TrashSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Trash
-        fields = ('user', 'activated', 'activation_mode', 'lat', 'lon', 'activated_at')
+        fields = ('id', 'user', 'activated', 'lat', 'lon', 'activated_at')
+
+
+class RouteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Trash
+        fields = ('address' + 'postal_code', 'lat', 'lon')
 
 # ViewSets define the view behavior.
 class UserViewSet(viewsets.ModelViewSet):
@@ -37,6 +43,7 @@ class UserViewSet(viewsets.ModelViewSet):
 class TrashViewSet(viewsets.ModelViewSet):
     queryset = Trash.objects.all()
     serializer_class = TrashSerializer
+
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
