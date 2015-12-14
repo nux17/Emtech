@@ -1,2 +1,0 @@
-# Emtech
-Emtech Hackathon
