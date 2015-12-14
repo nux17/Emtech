@@ -25,7 +25,7 @@ SECRET_KEY = 'qk)hnz=^58^q$i2xm^gi%+d)*atk#tp3ap8j)z$$q(llu0utpz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['54.213.223.60']
 
 
 # Application definition
@@ -109,6 +109,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+STATIC_ROOT = os.path.join("../static")
 
 
 # Internationalization
